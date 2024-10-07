@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wootlab AI Translator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chat-toggle">💬</button>
+
+    <div class="heading">
+        <img src="./Bot Icon.jpeg" alt="">
+        <h1 class="heading2">Wootlab AI Translator</h1>
+    </div>
+    <div class="language-select">
+        <label for="language">Select a Language:</label>
+        <select id="language">
+            <option value="igbo">Igbo</option>
+            <option value="yoruba">Yoruba</option>
+            <option value="hausa">Hausa</option>
+            <option value="french">French</option>
+            <option value="swahili">Swahili</option>
+            <option value="korean">Korean</option>
+            <option value="english">English</option>
+            <option value="portuguese">portuguese</option>
+            <option value="spanish">Spanish</option>
+            <option value="arabic">Arabic</option>
+            <option value="hindi">Hindi</option>
+            <option value="turkish">Turkish</option>
+            <option value="german">German</option>
+            <option value="russian">Russian</option>
+        </select>
+    </div>
+
+    <div class="chat-section" id="chat-section">
+        <div class="chat-window" id="chat-history">
+            <!-- Initial model message -->
+            <div class="model-message message">
+                <p>Hello there, <br>How can I help you today?</p>
+                <button class="speech-btn" onclick="playText('Hello there, How can I help you today?')">🔊</button>
+            </div>
+        </div>
+        <div class="input-section">
+            <textarea id="user-message" placeholder="Enter your message..."></textarea>
+            <button id="submit-btn">Submit</button>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>
