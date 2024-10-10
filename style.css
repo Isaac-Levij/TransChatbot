@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     /* background-color: #f0f2f5; Light gray background */
-    background-image: url(./background\ 4.jpeg);
+    /* background-image: url(./background\ 4.jpeg); */
     background-size: cover;  
     background-position: center;  
     background-repeat: no-repeat;  
@@ -85,8 +85,8 @@ body {
     position: fixed;
     bottom: 90px;
     right: 20px;
-    width: 350px;
-    max-height: 500px;
+    width: 400px;
+    max-height:800px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -99,7 +99,7 @@ body {
 .chat-window {
     padding: 10px;
     overflow-y: auto;
-    height: 400px;
+    height: 550px;
     background-color: #aef8ff;
 }
 
