@@ -1,6 +1,28 @@
 // Toggle chat visibility
 const chatToggleBtn = document.getElementById('chat-toggle');
 const chatSection = document.getElementById('chat-section');
+
+// Function to show only the toggle button when offline
+function updateVisibilityBasedOnNetwork() {
+    if (navigator.onLine) {
+        // If online, show both the chat toggle and the chat section
+        chatToggleBtn.style.display = 'block'; // Make sure toggle button is visible
+        chatSection.style.display = 'none'; // Chat section starts hidden
+    } else {
+        // If offline, hide the chat section and show only the toggle button
+        chatSection.style.display = 'none'; // Ensure chat section is hidden
+        chatToggleBtn.style.display = 'block'; // Keep toggle button visible
+    }
+}
+
+// Initial check for network status on page load
+updateVisibilityBasedOnNetwork();
+
+// Listen for network status changes (online/offline events)
+window.addEventListener('online', updateVisibilityBasedOnNetwork);
+window.addEventListener('offline', updateVisibilityBasedOnNetwork);
+
+// Toggle chat visibility on button click
 chatToggleBtn.addEventListener('click', () => {
     if (chatSection.style.display === 'none' || chatSection.style.display === '') {
         chatSection.style.display = 'flex';
@@ -25,9 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatHistory = [];
 
     async function sendMessage(userMessage, language) {
-        const systemInstruction = `
-            You are a translating chatbot that is able to translate what it is given to ${language}
-        `;
+        const systemInstruction = `You are a translating chatbot that translates what it is given to ${language}`;
         const requestBody = {
             contents: [
                 {
@@ -47,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDRwCnAdxFzYfZ3pME6Hb2L3bd8appmeU0`, {
+            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=API_KEY', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
